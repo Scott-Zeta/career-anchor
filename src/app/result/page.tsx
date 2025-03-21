@@ -1,3 +1,4 @@
+import RadarChart from '@/components/result/RadarChart';
 import React from 'react';
 
 export default function result() {
@@ -21,7 +22,7 @@ export default function result() {
               Your Career Anchor Profile
             </h2>
             <div className="h-80">
-              <canvas id="anchorChart"></canvas>
+              <RadarChart />
             </div>
           </div>
 
