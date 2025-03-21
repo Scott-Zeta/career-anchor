@@ -21,7 +21,7 @@ export default function Questionnaire() {
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage((prev) => prev + 1);
-      window.scrollTo({ top: 0 });
+      window.scrollTo({ top: 140 });
     } else {
       alert('You have completed the questionnaire!');
     }
@@ -29,7 +29,7 @@ export default function Questionnaire() {
   const handlePrevPage = () => {
     if (currentPage > 1) {
       setCurrentPage((prev) => prev - 1);
-      window.scrollTo({ top: 0 });
+      window.scrollTo({ top: 140 });
     }
   };
 
@@ -69,6 +69,7 @@ export default function Questionnaire() {
           onClick={() => {
             handlePrevPage();
           }}
+          disabled={currentPage === 1}
         >
           Previous Page
         </Button>
