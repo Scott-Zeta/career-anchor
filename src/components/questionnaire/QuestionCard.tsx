@@ -1,15 +1,23 @@
-export default function QuestionCard() {
+interface QuestionCardProps {
+  id: number;
+  text: string;
+  anchorLabel: string;
+}
+
+export default function QuestionCard({
+  id,
+  text,
+  anchorLabel,
+}: QuestionCardProps) {
   return (
     <div className="question-card bg-white p-6 rounded-xl shadow-md">
       <div className="flex items-start mb-4">
         <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-4 px-3 py-1.5 rounded-lg">
-          1
+          {id}
         </span>
         <div>
-          <h3 className="text-lg font-medium text-gray-900">
-            I want to be really good at my job, one of the best, an expert.
-          </h3>
-          <p className="text-sm text-gray-500">Technical/Functional (TF)</p>
+          <h3 className="text-lg font-medium text-gray-900">{text}</h3>
+          <p className="text-sm text-gray-500">{anchorLabel}</p>
         </div>
       </div>
 
@@ -23,13 +31,13 @@ export default function QuestionCard() {
           <div className="relative">
             <input
               type="radio"
-              name="q1"
+              name={`q-${id}`}
               value={value}
-              id={`q-${value}`}
+              id={`q-${id}-${value}`}
               className="hidden peer"
             />
             <label
-              htmlFor={`q-${value}`}
+              htmlFor={`q-${id}-${value}`}
               className="block text-center px-4 py-2 border-2 border-gray-300 rounded-lg cursor-pointer transition-all peer-checked:border-blue-500 peer-checked:bg-blue-50"
             >
               <span className="block text-sm font-medium">{value}</span>
