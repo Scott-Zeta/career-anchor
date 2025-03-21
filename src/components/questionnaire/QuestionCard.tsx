@@ -28,7 +28,7 @@ export default function QuestionCard({
           { value: 3, label: 'High' },
           { value: 4, label: 'Very High' },
         ].map(({ value, label }) => (
-          <div className="relative">
+          <div key={`q-${id}-${value}`} className="relative">
             <input
               type="radio"
               name={`q-${id}`}
