@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Anchor - Descriptions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .anchor-card {
+        border-left: 4px solid;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .anchor-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .tf {
+        border-color: #4f46e5;
+      }
+      .gmc {
+        border-color: #0ea5e9;
+      }
+      .ai {
+        border-color: #10b981;
+      }
+      .ss {
+        border-color: #f59e0b;
+      }
+      .ec {
+        border-color: #ef4444;
+      }
+      .s {
+        border-color: #8b5cf6;
+      }
+      .pc {
+        border-color: #ec4899;
+      }
+      .ls {
+        border-color: #6366f1;
+      }
+
+      .accordion-header {
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .accordion-header:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .accordion-content.active {
+        max-height: 1000px;
+      }
+      .accordion-icon {
+        transition: transform 0.3s;
+      }
+      .accordion-icon.active {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+      <header class="mb-10">
+        <nav class="flex justify-between items-center mb-8">
+          <div class="flex items-center">
+            <i class="fas fa-anchor text-blue-600 text-3xl mr-3"></i>
+            <span class="text-2xl font-bold text-blue-800">Career Anchor</span>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >Results</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >Contact</a
+            >
+          </div>
+        </nav>
+      </header>
+
+      <div class="mb-10">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+          Career Anchor Descriptions
+        </h1>
+        <p class="text-gray-600 mb-6">
+          Learn more about each of the eight career anchors identified by Dr.
+          Edgar Schein and what they mean for your career path.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="p-6 border-b border-gray-200">
+            <h2 class="text-xl font-semibold text-gray-900">
+              Your Top Anchors
+            </h2>
+            <p class="text-gray-600 mt-2">
+              Based on your questionnaire results, your top three career anchors
+              are:
+            </p>
+            <div class="flex flex-wrap gap-3 mt-4">
+              <span
+                class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium"
+                >Technical/Functional (11)</span
+              >
+              <span
+                class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium"
+                >Autonomy/Independence (9)</span
+              >
+              <span
+                class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium"
+                >Pure Challenge (8)</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6 mb-12">
+        <!-- TF Anchor -->
+        <div class="anchor-card tf bg-white p-6 rounded-r-lg shadow-md">
+          <div class="flex items-start mb-4">
+            <div
+              class="bg-indigo-100 text-indigo-700 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0"
+            >
+              <i class="fas fa-wrench text-xl"></i>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-gray-900">
+                Technical/Functional Competence
+              </h2>
+              <p class="text-indigo-600 font-medium">
+                Developing expertise in a specific area
+              </p>
+            </div>
+          </div>
+          <div class="ml-16">
+            <p class="text-gray-600 mb-4">
+              This kind of person likes being good at something and will work to
+              become a guru or expert. They will commit themselves to
+              specializing in their field. They like to be challenged and then
+              use their skill to meet the challenge, doing the job properly and
+              better than almost anyone else.
+            </p>
+            <p class="text-gray-600 mb-4">
+              They may be willing to be 'functional managers' but will not value
+              the concerns of general management. If the work does not test
+              their abilities and skills, they will very quickly become bored.
+            </p>
+            <div class="bg-indigo-50 p-4 rounded-lg">
+              <h3 class="text-lg font-medium text-gray-900 mb-2">
+                Career Implications
+              </h3>
+              <ul class="space-y-2 text-gray-600 list-disc list-inside">
+                <li>
+                  Seeks specialized roles where expertise can be developed and
+                  applied
+                </li>
+                <li>
+                  Values opportunities for continuous professional development
+                </li>
+                <li>
+                  Prefers recognition based on technical competence rather than
+                  managerial skills
+                </li>
+                <li>
+                  May resist moving into general management roles that take them
+                  away from their area of expertise
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- GMC Anchor -->
+        <div class="anchor-card gmc bg-white p-6 rounded-r-lg shadow-md">
+          <div class="flex items-start mb-4">
+            <div
+              class="bg-blue-100 text-blue-700 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0"
+            >
+              <i class="fas fa-users text-xl"></i>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-gray-900">
+                General Managerial Competence
+              </h2>
+              <p class="text-blue-600 font-medium">
+                Leading and coordinating diverse functions
+              </p>
+            </div>
+          </div>
+          <div class="ml-16">
+            <p class="text-gray-600 mb-4">
+              Unlike technical/functional people, these individuals want to be
+              managers; and not just to climb the ladder, or earn more money.
+              They find that it is management per se that interests them. They
+              like problem-solving and dealing with other people.
+            </p>
+            <p class="text-gray-600 mb-4">
+              They thrive on responsibility and ideally will look to rise up
+              through the organizational levels so they can be in a position to
+              make major policy decisions. To be successful, they will need
+              analytical, emotional, interpersonal and intergroup competence.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h3 class="text-lg font-medium text-gray-900 mb-2">
+                Career Implications
+              </h3>
+              <ul class="space-y-2 text-gray-600 list-disc list-inside">
+                <li>
+                  Seeks positions with increasing managerial responsibility
+                </li>
+                <li>
+                  Values breadth of experience across different organizational
+                  functions
+                </li>
+                <li>
+                  Motivated by opportunities to lead teams and make strategic
+                  decisions
+                </li>
+                <li>
+                  Measures success by promotion to higher levels of
+                  responsibility
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Anchor -->
+        <div class="anchor-card ai bg-white p-6 rounded-r-lg shadow-md">
+          <div class="flex items-start mb-4">
+            <div
+              class="bg-green-100 text-green-700 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0"
+            >
+              <i class="fas fa-check text-xl"></i>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-gray-900">
+                Autonomy/Independence
+              </h2>
+              <p class="text-green-600 font-medium">
+                Freedom from organizational constraints
+              </p>
+            </div>
+          </div>
+          <div class="ml-16">
+            <p class="text-gray-600 mb-4">
+              Some people come to recognize that they find it really hard to be
+              bound by other people's rules, procedures, working hours, or dress
+              codes. In short, all of the things that come with working in any
+              kind of organization. Primarily, these people have a need to work
+              under their own rules and steam.
+            </p>
+            <p class="text-gray-600 mb-4">
+              Regardless of the type of work, they want to do things in their
+              own way and at their own pace. They like clearly delineated,
+              time-bound work within their area of expertise. As such, they will
+              often gravitate towards careers that afford them as much autonomy
+              as possible.
+            </p>
+            <div class="bg-green-50 p-4 rounded-lg">
+              <h3 class="text-lg font-medium text-gray-900 mb-2">
+                Career Implications
+              </h3>
+              <ul class="space-y-2 text-gray-600 list-disc list-inside">
+                <li>
+                  Seeks roles with minimal supervision and maximum autonomy
+                </li>
+                <li>
+                  May prefer freelance, consulting, or independent contractor
+                  roles
+                </li>
+                <li>
+                  Values flexible work arrangements and the ability to set own
+                  schedule
+                </li>
+                <li>
+                  May resist organizational policies that limit personal freedom
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion for the rest of the anchors -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="accordion">
+            <!-- Security/Stability -->
+            <div class="border-b border-gray-200">
+              <div
+                class="accordion-header flex justify-between items-center p-5"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="bg-amber-100 text-amber-700 w-10 h-10 rounded-full flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <span class="font-medium text-gray-900"
+                    >Security/Stability</span
+                  >
+                </div>
+                <i class="fas fa-chevron-down text-gray-500 accordion-icon"></i>
+              </div>
+              <div class="accordion-content px-5 pb-5">
+                <p class="text-gray-600 mb-4">
+                  Security-focused people seek stability and continuity as a
+                  primary factor of their lives. We all need varying degrees of
+                  security at different points in our lives, however for some
+                  this is the predominant orientation throughout their lives and
+                  will certainly guide their career decisions.
+                </p>
+                <p class="text-gray-600">
+                  They will often seek out stable organisations that provide the
+                  greatest opportunity for job security. They also tend to
+                  prefer stable, predictable work tasks. They also need to
+                  believe that loyalty makes a real contribution to an
+                  organisation's performance.
+                </p>
+              </div>
+            </div>
+
+            <!-- Entrepreneurial Creativity -->
+            <div class="border-b border-gray-200">
+              <div
+                class="accordion-header flex justify-between items-center p-5"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="bg-red-100 text-red-700 w-10 h-10 rounded-full flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <span class="font-medium text-gray-900"
+                    >Entrepreneurial Creativity</span
+                  >
+                </div>
+                <i class="fas fa-chevron-down text-gray-500 accordion-icon"></i>
+              </div>
+              <div class="accordion-content px-5 pb-5">
+                <p class="text-gray-600 mb-4">
+                  People who have this anchor, have an overriding need to create
+                  new products or services. Whilst creativity exists in one form
+                  or another in all the groups, for the entrepreneur creating a
+                  new venture, product or service of some sort is essential to
+                  their sense of success and fulfilment.
+                </p>
+                <p class="text-gray-600">
+                  They are obsessed with their need to create, are restless and
+                  continually require new creative challenges. They like to run
+                  their own businesses, but differ from those who seek autonomy
+                  in that they will share the workload. Ownership is more
+                  important than making money, although this is viewed as a key
+                  measure of success.
+                </p>
+              </div>
+            </div>
+
+            <!-- Service/Dedication -->
+            <div class="border-b border-gray-200">
+              <div
+                class="accordion-header flex justify-between items-center p-5"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="bg-purple-100 text-purple-700 w-10 h-10 rounded-full flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-hands-helping"></i>
+                  </div>
+                  <span class="font-medium text-gray-900"
+                    >Service/Dedication to a Cause</span
+                  >
+                </div>
+                <i class="fas fa-chevron-down text-gray-500 accordion-icon"></i>
+              </div>
+              <div class="accordion-content px-5 pb-5">
+                <p class="text-gray-600 mb-4">
+                  Some people will pursue a career because they want to embody
+                  their core values in their work and careers. As such, they
+                  have a keener orientation towards their values than any
+                  talents or competencies.
+                </p>
+                <p class="text-gray-600">
+                  Their choices will be based on a desire to improve the world
+                  in some way. They will want work that allows them to influence
+                  their employing organisations in the direction of their
+                  values. Service-oriented people are driven by how they can
+                  help other people more than using their talents (which may
+                  fall in other areas).
+                </p>
+              </div>
+            </div>
+
+            <!-- Pure Challenge -->
+            <div class="border-b border-gray-200">
+              <div
+                class="accordion-header flex justify-between items-center p-5"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="bg-pink-100 text-pink-700 w-10 h-10 rounded-full flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <span class="font-medium text-gray-900">Pure Challenge</span>
+                </div>
+                <i class="fas fa-chevron-down text-gray-500 accordion-icon"></i>
+              </div>
+              <div class="accordion-content px-5 pb-5">
+                <p class="text-gray-600 mb-4">
+                  Some people are driven by challenge. They will define success
+                  as overcoming tremendous obstacles, solving the unsolvable or
+                  winning out against impossible odds. They will seek constant
+                  stimulation and difficult problems that they can tackle.
+                </p>
+                <p class="text-gray-600">
+                  Most people will want a degree of challenge in their work, but
+                  for this type the challenge is the only thing that matters.
+                  Such people will change jobs when the current one gets boring
+                  and their career histories can be very varied.
+                </p>
+              </div>
+            </div>
+
+            <!-- Lifestyle -->
+            <div>
+              <div
+                class="accordion-header flex justify-between items-center p-5"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="bg-indigo-100 text-indigo-700 w-10 h-10 rounded-full flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-balance-scale"></i>
+                  </div>
+                  <span class="font-medium text-gray-900">Lifestyle</span>
+                </div>
+                <i class="fas fa-chevron-down text-gray-500 accordion-icon"></i>
+              </div>
+              <div class="accordion-content px-5 pb-5">
+                <p class="text-gray-600 mb-4">
+                  Initially it appears that the notion that one's career anchor
+                  is organized around lifestyle is a contradiction in terms.
+                  However, many people who are highly motivated towards a
+                  meaningful career, find themselves in situations that mean
+                  their careers must be integrated into their total lifestyle.
+                </p>
+                <p class="text-gray-600">
+                  This is an evolving process, ergo people who find themselves
+                  in this situation want flexibility above all else. When
+                  seeking employment they are more likely to be interested in an
+                  organisation's attitude towards personal/family concerns, than
+                  the sector or area of expertise. They may even take long
+                  periods off work in which to indulge in their passions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 p-6 rounded-xl shadow-md mb-8">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">
+          What Do These Anchors Mean For You?
+        </h2>
+        <p class="text-gray-600 mb-4">
+          Understanding your career anchors can help you make more informed
+          career choices that align with your values and motivations. When your
+          work environment matches your career anchors, you're likely to feel
+          more satisfied and engaged.
+        </p>
+        <p class="text-gray-600 mb-4">
+          Consider discussing your results with a career counselor or mentor who
+          can help you explore career paths that align with your anchors.
+        </p>
+        <div class="flex justify-center mt-6">
+          <button
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors"
+          >
+            Return to Your Results
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center mb-4 md:mb-0">
+            <i class="fas fa-anchor text-blue-400 text-2xl mr-3"></i>
+            <span class="text-xl font-bold">Career Anchor</span>
+          </div>
+          <div class="flex space-x-8">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+        <div class="text-center mt-6 text-gray-400">
+          &copy; 2023 Career Anchor. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach((header) => {
+          header.addEventListener('click', function () {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.accordion-icon');
+
+            // Toggle active class on content
+            content.classList.toggle('active');
+
+            // Toggle active class on icon
+            icon.classList.toggle('active');
+
+            // Adjust max-height
+            if (content.classList.contains('active')) {
+              content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+              content.style.maxHeight = '0';
+            }
+          });
+        });
+
+        // Return to results button
+        document
+          .querySelector('.bg-blue-600')
+          .addEventListener('click', function () {
+            window.parent.postMessage({ action: 'showScreen', index: 2 }, '*');
+          });
+      });
+    </script>
+  </body>
+</html>

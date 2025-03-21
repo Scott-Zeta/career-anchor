@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Anchor - Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .result-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .result-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .anchor-card {
+        border-left: 4px solid;
+        transition: transform 0.2s;
+      }
+      .anchor-card:hover {
+        transform: translateX(4px);
+      }
+      .tf {
+        border-color: #4f46e5;
+      }
+      .gmc {
+        border-color: #0ea5e9;
+      }
+      .ai {
+        border-color: #10b981;
+      }
+      .ss {
+        border-color: #f59e0b;
+      }
+      .ec {
+        border-color: #ef4444;
+      }
+      .s {
+        border-color: #8b5cf6;
+      }
+      .pc {
+        border-color: #ec4899;
+      }
+      .ls {
+        border-color: #6366f1;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+      <header class="mb-10">
+        <nav class="flex justify-between items-center mb-8">
+          <div class="flex items-center">
+            <i class="fas fa-anchor text-blue-600 text-3xl mr-3"></i>
+            <span class="text-2xl font-bold text-blue-800">Career Anchor</span>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >About</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >Contact</a
+            >
+          </div>
+        </nav>
+      </header>
+
+      <div class="mb-10">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+          Your Career Anchor Results
+        </h1>
+        <p class="text-gray-600 mb-6">
+          Based on your responses, we've identified your dominant career
+          anchors. These anchors represent what you value most in your work
+          life.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div class="lg:col-span-2">
+          <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">
+              Your Career Anchor Profile
+            </h2>
+            <div class="h-80">
+              <canvas id="anchorChart"></canvas>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">
+              Your Top Three Anchors
+            </h2>
+
+            <div class="space-y-4">
+              <!-- Top Anchor -->
+              <div class="anchor-card tf p-4 bg-indigo-50 rounded-r-lg">
+                <div class="flex items-center mb-2">
+                  <div
+                    class="bg-indigo-100 text-indigo-700 w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                  >
+                    <i class="fas fa-wrench"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-medium text-gray-900">
+                      Technical/Functional Competence
+                    </h3>
+                    <span class="text-sm font-medium text-indigo-600"
+                      >Primary Anchor (Score: 11)</span
+                    >
+                  </div>
+                </div>
+                <p class="text-gray-600 ml-13">
+                  You value being good at something specific and enjoy
+                  developing expertise in your field. You're motivated by
+                  challenges that test your skills and abilities.
+                </p>
+              </div>
+
+              <!-- Second Anchor -->
+              <div class="anchor-card ai p-4 bg-green-50 rounded-r-lg">
+                <div class="flex items-center mb-2">
+                  <div
+                    class="bg-green-100 text-green-700 w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                  >
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-medium text-gray-900">
+                      Autonomy/Independence
+                    </h3>
+                    <span class="text-sm font-medium text-green-600"
+                      >Secondary Anchor (Score: 9)</span
+                    >
+                  </div>
+                </div>
+                <p class="text-gray-600 ml-13">
+                  You value freedom and independence in your work. You prefer
+                  environments that allow you to work on your own terms and at
+                  your own pace.
+                </p>
+              </div>
+
+              <!-- Third Anchor -->
+              <div class="anchor-card pc p-4 bg-pink-50 rounded-r-lg">
+                <div class="flex items-center mb-2">
+                  <div
+                    class="bg-pink-100 text-pink-700 w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                  >
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-medium text-gray-900">
+                      Pure Challenge
+                    </h3>
+                    <span class="text-sm font-medium text-pink-600"
+                      >Tertiary Anchor (Score: 8)</span
+                    >
+                  </div>
+                </div>
+                <p class="text-gray-600 ml-13">
+                  You're motivated by overcoming difficult obstacles and solving
+                  unsolvable problems. You thrive on constant challenge and
+                  competition.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-1">
+          <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">
+              Your Complete Results
+            </h2>
+
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-700"
+                  >Technical/Functional (TF)</span
+                >
+                <span class="text-sm font-medium text-gray-900">11</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-indigo-600 h-2.5 rounded-full"
+                  style="width: 92%"
+                ></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-700"
+                  >General Management (GMC)</span
+                >
+                <span class="text-sm font-medium text-gray-900">6</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-blue-500 h-2.5 rounded-full"
+                  style="width: 50%"
+                ></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-700"
+                  >Autonomy/Independence (AI)</span
+                >
+                <span class="text-sm font-medium text-gray-900">9</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-green-500 h-2.5 rounded-full"
+                  style="width: 75%"
+                ></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-700"
+                  >Security/Stability (SS)</span
+                >
+                <span class="text-sm font-medium text-gray-900">5</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-amber-500 h-2.5 rounded-full"
+                  style="width: 42%"
+                ></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-700"
+                  >Entrepreneurial Creativity (EC)</span
+                >
+                <span class="text-sm font-medium text-gray-900">7</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-red-500 h-2.5 rounded-full"
+                  style="width: 58%"
+                ></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-700"
+                  >Service/Dedication (S)</span
+                >
+                <span class="text-sm font-medium text-gray-900">6</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-purple-500 h-2.5 rounded-full"
+                  style="width: 50%"
+                ></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-700"
+                  >Pure Challenge (PC)</span
+                >
+                <span class="text-sm font-medium text-gray-900">8</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-pink-500 h-2.5 rounded-full"
+                  style="width: 67%"
+                ></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-700"
+                  >Lifestyle (LS)</span
+                >
+                <span class="text-sm font-medium text-gray-900">4</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-indigo-400 h-2.5 rounded-full"
+                  style="width: 33%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-xl shadow-md">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">
+              What's Next?
+            </h2>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div
+                  class="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0"
+                >
+                  <i class="fas fa-book-open text-xs"></i>
+                </div>
+                <span class="text-gray-600"
+                  >Read detailed descriptions of your top anchors</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0"
+                >
+                  <i class="fas fa-download text-xs"></i>
+                </div>
+                <span class="text-gray-600"
+                  >Download your complete results report</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0"
+                >
+                  <i class="fas fa-share-alt text-xs"></i>
+                </div>
+                <span class="text-gray-600"
+                  >Share your results with a career counselor</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0"
+                >
+                  <i class="fas fa-calendar text-xs"></i>
+                </div>
+                <span class="text-gray-600"
+                  >Schedule a career guidance session</span
+                >
+              </li>
+            </ul>
+
+            <div class="mt-6">
+              <button
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg font-medium transition-colors"
+              >
+                View Anchor Descriptions
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center mb-4 md:mb-0">
+            <i class="fas fa-anchor text-blue-400 text-2xl mr-3"></i>
+            <span class="text-xl font-bold">Career Anchor</span>
+          </div>
+          <div class="flex space-x-8">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+        <div class="text-center mt-6 text-gray-400">
+          &copy; 2023 Career Anchor. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Chart data
+        const anchorLabels = ['TF', 'GMC', 'AI', 'SS', 'EC', 'S', 'PC', 'LS'];
+        const anchorScores = [11, 6, 9, 5, 7, 6, 8, 4];
+        const anchorColors = [
+          'rgba(79, 70, 229, 0.7)', // TF - indigo
+          'rgba(14, 165, 233, 0.7)', // GMC - sky
+          'rgba(16, 185, 129, 0.7)', // AI - emerald
+          'rgba(245, 158, 11, 0.7)', // SS - amber
+          'rgba(239, 68, 68, 0.7)', // EC - red
+          'rgba(139, 92, 246, 0.7)', // S - purple
+          'rgba(236, 72, 153, 0.7)', // PC - pink
+          'rgba(99, 102, 241, 0.7)', // LS - indigo lighter
+        ];
+
+        // Create the chart
+        const ctx = document.getElementById('anchorChart').getContext('2d');
+        const chart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: anchorLabels,
+            datasets: [
+              {
+                label: 'Your Score',
+                data: anchorScores,
+                backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                borderColor: 'rgba(59, 130, 246, 0.8)',
+                borderWidth: 2,
+                pointBackgroundColor: anchorColors,
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: anchorColors,
+                pointRadius: 5,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                angleLines: {
+                  display: true,
+                  color: 'rgba(0, 0, 0, 0.1)',
+                },
+                grid: {
+                  color: 'rgba(0, 0, 0, 0.1)',
+                },
+                pointLabels: {
+                  font: {
+                    size: 14,
+                    weight: 'bold',
+                  },
+                },
+                min: 0,
+                max: 12,
+                ticks: {
+                  stepSize: 3,
+                  backdropColor: 'transparent',
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  title: function (tooltipItems) {
+                    const fullNames = {
+                      TF: 'Technical/Functional',
+                      GMC: 'General Management',
+                      AI: 'Autonomy/Independence',
+                      SS: 'Security/Stability',
+                      EC: 'Entrepreneurial Creativity',
+                      S: 'Service/Dedication',
+                      PC: 'Pure Challenge',
+                      LS: 'Lifestyle',
+                    };
+                    return (
+                      fullNames[tooltipItems[0].label] || tooltipItems[0].label
+                    );
+                  },
+                },
+              },
+            },
+          },
+        });
+      });
+
+      // Handle the button click
+      document
+        .querySelector('.bg-blue-600')
+        .addEventListener('click', function () {
+          window.parent.postMessage({ action: 'showScreen', index: 3 }, '*');
+        });
+    </script>
+  </body>
+</html>

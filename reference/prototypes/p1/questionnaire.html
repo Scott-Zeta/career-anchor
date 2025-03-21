@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Anchor - Questionnaire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .question-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .question-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      /* Custom radio buttons */
+      .custom-radio input {
+        display: none;
+      }
+      .custom-radio label {
+        display: block;
+        position: relative;
+        padding: 10px 15px;
+        cursor: pointer;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        transition: all 0.3s;
+      }
+      .custom-radio input:checked + label {
+        border-color: #3b82f6;
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+      .progress-bar {
+        height: 8px;
+        background: #e2e8f0;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background: #3b82f6;
+        border-radius: 4px;
+        transition: width 0.5s ease;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+      <header class="mb-10">
+        <nav class="flex justify-between items-center mb-8">
+          <div class="flex items-center">
+            <i class="fas fa-anchor text-blue-600 text-3xl mr-3"></i>
+            <span class="text-2xl font-bold text-blue-800">Career Anchor</span>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >About</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >Contact</a
+            >
+          </div>
+        </nav>
+      </header>
+
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+          Career Anchors Questionnaire
+        </h1>
+        <p class="text-gray-600 mb-6">
+          Rate each statement on a scale of 1 (low) to 4 (high) based on how
+          much it applies to you. There are no right or wrong answers - the goal
+          is to understand what matters most to you in your career.
+        </p>
+
+        <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-medium text-gray-700"
+              >Progress: 0 of 24 questions answered</span
+            >
+            <span class="text-sm font-medium text-gray-700">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <form id="questionnaire-form">
+        <div class="space-y-6">
+          <!-- Question 1 -->
+          <div class="question-card bg-white p-6 rounded-xl shadow-md">
+            <div class="flex items-start mb-4">
+              <span
+                class="bg-blue-100 text-blue-800 text-sm font-medium mr-4 px-3 py-1.5 rounded-lg"
+                >1</span
+              >
+              <div>
+                <h3 class="text-lg font-medium text-gray-900">
+                  I want to be really good at my job, one of the best, an
+                  expert.
+                </h3>
+                <p class="text-sm text-gray-500">Technical/Functional (TF)</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+              <div class="custom-radio">
+                <input type="radio" name="q1" id="q1-1" value="1" />
+                <label for="q1-1" class="text-center">
+                  <span class="block text-sm font-medium">1</span>
+                  <span class="text-xs text-gray-500">Low</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q1" id="q1-2" value="2" />
+                <label for="q1-2" class="text-center">
+                  <span class="block text-sm font-medium">2</span>
+                  <span class="text-xs text-gray-500">Somewhat</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q1" id="q1-3" value="3" />
+                <label for="q1-3" class="text-center">
+                  <span class="block text-sm font-medium">3</span>
+                  <span class="text-xs text-gray-500">Mostly</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q1" id="q1-4" value="4" />
+                <label for="q1-4" class="text-center">
+                  <span class="block text-sm font-medium">4</span>
+                  <span class="text-xs text-gray-500">High</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="question-card bg-white p-6 rounded-xl shadow-md">
+            <div class="flex items-start mb-4">
+              <span
+                class="bg-blue-100 text-blue-800 text-sm font-medium mr-4 px-3 py-1.5 rounded-lg"
+                >2</span
+              >
+              <div>
+                <h3 class="text-lg font-medium text-gray-900">
+                  I really feel most satisfied when I am able to manage the work
+                  of others to achieve a common goal.
+                </h3>
+                <p class="text-sm text-gray-500">
+                  General Managerial Competence (GMC)
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+              <div class="custom-radio">
+                <input type="radio" name="q2" id="q2-1" value="1" />
+                <label for="q2-1" class="text-center">
+                  <span class="block text-sm font-medium">1</span>
+                  <span class="text-xs text-gray-500">Low</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q2" id="q2-2" value="2" />
+                <label for="q2-2" class="text-center">
+                  <span class="block text-sm font-medium">2</span>
+                  <span class="text-xs text-gray-500">Somewhat</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q2" id="q2-3" value="3" />
+                <label for="q2-3" class="text-center">
+                  <span class="block text-sm font-medium">3</span>
+                  <span class="text-xs text-gray-500">Mostly</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q2" id="q2-4" value="4" />
+                <label for="q2-4" class="text-center">
+                  <span class="block text-sm font-medium">4</span>
+                  <span class="text-xs text-gray-500">High</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="question-card bg-white p-6 rounded-xl shadow-md">
+            <div class="flex items-start mb-4">
+              <span
+                class="bg-blue-100 text-blue-800 text-sm font-medium mr-4 px-3 py-1.5 rounded-lg"
+                >3</span
+              >
+              <div>
+                <h3 class="text-lg font-medium text-gray-900">
+                  Ideally I want to do things my way and to my own timetable.
+                </h3>
+                <p class="text-sm text-gray-500">Autonomy/Independence (AI)</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+              <div class="custom-radio">
+                <input type="radio" name="q3" id="q3-1" value="1" />
+                <label for="q3-1" class="text-center">
+                  <span class="block text-sm font-medium">1</span>
+                  <span class="text-xs text-gray-500">Low</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q3" id="q3-2" value="2" />
+                <label for="q3-2" class="text-center">
+                  <span class="block text-sm font-medium">2</span>
+                  <span class="text-xs text-gray-500">Somewhat</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q3" id="q3-3" value="3" />
+                <label for="q3-3" class="text-center">
+                  <span class="block text-sm font-medium">3</span>
+                  <span class="text-xs text-gray-500">Mostly</span>
+                </label>
+              </div>
+              <div class="custom-radio">
+                <input type="radio" name="q3" id="q3-4" value="4" />
+                <label for="q3-4" class="text-center">
+                  <span class="block text-sm font-medium">4</span>
+                  <span class="text-xs text-gray-500">High</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- More questions would go here - showing 3 as examples -->
+          <div class="text-center">
+            <p class="text-gray-500 italic mb-4">
+              Questions 4-24 would follow the same format...
+            </p>
+          </div>
+
+          <div
+            class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200"
+          >
+            <button
+              type="button"
+              class="bg-white border border-gray-300 text-gray-700 px-5 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+            >
+              Save and Continue Later
+            </button>
+            <button
+              type="submit"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+            >
+              Calculate Results
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center mb-4 md:mb-0">
+            <i class="fas fa-anchor text-blue-400 text-2xl mr-3"></i>
+            <span class="text-xl font-bold">Career Anchor</span>
+          </div>
+          <div class="flex space-x-8">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+        <div class="text-center mt-6 text-gray-400">
+          &copy; 2023 Career Anchor. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('questionnaire-form');
+        const progressBar = document.querySelector('.progress-fill');
+        const progressText = document.querySelector(
+          '.text-sm.font-medium.text-gray-700'
+        );
+        const progressPercentage = document.querySelector(
+          '.text-sm.font-medium.text-gray-700 + .text-sm'
+        );
+
+        // Update progress when a radio button is clicked
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach((radio) => {
+          radio.addEventListener('change', updateProgress);
+        });
+
+        function updateProgress() {
+          const totalQuestions = 24; // In reality this would be 24
+          const answeredQuestions = document.querySelectorAll(
+            'input[type="radio"]:checked'
+          ).length;
+          const percentage = Math.round(
+            (answeredQuestions / totalQuestions) * 100
+          );
+
+          progressBar.style.width = percentage + '%';
+          progressText.textContent = `Progress: ${answeredQuestions} of ${totalQuestions} questions answered`;
+          progressPercentage.textContent = percentage + '%';
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          // In a real implementation, this would calculate and redirect to results
+          alert(
+            'Form submitted! In the actual implementation, this would calculate your results and take you to the results page.'
+          );
+          // Redirect to results page
+          window.parent.postMessage({ action: 'showScreen', index: 2 }, '*');
+        });
+      });
+    </script>
+  </body>
+</html>
