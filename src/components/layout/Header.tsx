@@ -42,7 +42,7 @@ export default function Header() {
             Contact
           </Link>
           {pathname !== '/questionnaire' && (
-            <Button className="font-bold hidden md:block">
+            <Button className="font-bold hidden md:block" asChild>
               <Link href="/questionnaire">Start Questionnaire</Link>
             </Button>
           )}
