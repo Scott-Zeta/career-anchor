@@ -1,5 +1,6 @@
 import ProgressBar from '@/components/questionnaire/ProgressBar';
 import QuestionCard from '@/components/questionnaire/QuestionCard';
+import { Button } from '@/components/ui/button';
 
 export default function Questionnaire() {
   return (
@@ -15,8 +16,19 @@ export default function Questionnaire() {
         </p>
         <ProgressBar />
       </div>
-      <div className="space-y-6">
+      <div className="space-y-6 mb-5">
         <QuestionCard />
+      </div>
+
+      <div className="text-center text-sm text-gray-500">Page 1 of 2</div>
+
+      <div className="flex justify-between items-center mt-5 pt-6 border-t border-gray-200">
+        <Button className="min-w-[160px] px-8 py-7 bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 rounded-lg font-medium text-lg transition-colors">
+          Previous Page
+        </Button>
+        <Button className="min-w-[160px] px-8 py-7 rounded-lg font-medium text-lg transition-colors">
+          Next Page
+        </Button>
       </div>
     </div>
   );
