@@ -18,10 +18,16 @@ export default function Home() {
             informed decisions about your professional future.
           </p>
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
-            <Button className="w-full sm:w-auto px-8 py-7 rounded-lg font-medium text-lg transition-colors">
+            <Button
+              className="w-full sm:w-auto px-8 py-7 rounded-lg font-medium text-lg transition-colors"
+              asChild
+            >
               <Link href="/questionnaire">Take the Questionnaire</Link>
             </Button>
-            <Button className="w-full sm:w-auto px-8 py-7 bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 rounded-lg font-medium text-lg transition-colors">
+            <Button
+              className="w-full sm:w-auto px-8 py-7 bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 rounded-lg font-medium text-lg transition-colors"
+              asChild
+            >
               <Link href="/about">Learn More</Link>
             </Button>
           </div>
@@ -116,7 +122,10 @@ export default function Home() {
           Take our comprehensive questionnaire and get personalized insights
           about what truly drives your career satisfaction.
         </p>
-        <Button className="w-full sm:w-auto px-8 py-7 rounded-lg font-medium text-lg transition-colors">
+        <Button
+          className="w-full sm:w-auto px-8 py-7 rounded-lg font-medium text-lg transition-colors"
+          asChild
+        >
           <Link href="/questionnaire">Start the Questionnaire</Link>
         </Button>
       </section>
