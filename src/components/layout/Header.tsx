@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { GiAnchor } from 'react-icons/gi';
 import { Button } from '../ui/button';
-import path from 'path';
 
 export default function Header() {
   const pathname = usePathname();
