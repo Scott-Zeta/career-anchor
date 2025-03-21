@@ -1,4 +1,5 @@
 import ProgressBar from '@/components/questionnaire/ProgressBar';
+import QuestionCard from '@/components/questionnaire/QuestionCard';
 
 export default function Questionnaire() {
   return (
@@ -13,6 +14,9 @@ export default function Questionnaire() {
           is to understand what matters most to you in your career.
         </p>
         <ProgressBar />
+      </div>
+      <div className="space-y-6">
+        <QuestionCard />
       </div>
     </div>
   );
