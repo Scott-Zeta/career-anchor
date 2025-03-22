@@ -9,7 +9,7 @@ export default function ProgressBar() {
         </span>
         <span className="text-sm font-medium text-gray-700">13%</span>
       </div>
-      <Progress value={13} />
+      <Progress value={13} indicatorColor="bg-primary" />
     </div>
   );
 }

@@ -1,6 +1,9 @@
 import RadarChart from '@/components/result/RadarChart';
 import React from 'react';
 
+import { anchorDescriptions } from '@/lib/CareerAnchorData';
+import { Progress } from '@/components/ui/progress';
+
 export default function result() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
@@ -108,85 +111,21 @@ export default function result() {
             </h2>
 
             <div className="space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">
-                  Technical/Functional (TF)
-                </span>
-                <span className="text-sm font-medium text-gray-900">11</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-indigo-600 h-2.5 rounded-full"></div>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">
-                  General Management (GMC)
-                </span>
-                <span className="text-sm font-medium text-gray-900">6</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-blue-500 h-2.5 rounded-full"></div>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">
-                  Autonomy/Independence (AI)
-                </span>
-                <span className="text-sm font-medium text-gray-900">9</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-green-500 h-2.5 rounded-full"></div>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">
-                  Security/Stability (SS)
-                </span>
-                <span className="text-sm font-medium text-gray-900">5</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-amber-500 h-2.5 rounded-full"></div>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">
-                  Entrepreneurial Creativity (EC)
-                </span>
-                <span className="text-sm font-medium text-gray-900">7</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-red-500 h-2.5 rounded-full"></div>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">
-                  Service/Dedication (S)
-                </span>
-                <span className="text-sm font-medium text-gray-900">6</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-purple-500 h-2.5 rounded-full"></div>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">
-                  Pure Challenge (PC)
-                </span>
-                <span className="text-sm font-medium text-gray-900">8</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-pink-500 h-2.5 rounded-full"></div>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">
-                  Lifestyle (LS)
-                </span>
-                <span className="text-sm font-medium text-gray-900">4</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-indigo-400 h-2.5 rounded-full"></div>
-              </div>
+              {Object.entries(anchorDescriptions).map(([key, anchor]) => (
+                <div key={key}>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-700">
+                      {`${anchor.title} (${key.toString()})`}
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">6</span>
+                  </div>
+                  <Progress
+                    value={66}
+                    className="mt-4"
+                    indicatorColor={`bg-${anchor.themecolor}-500`}
+                  />
+                </div>
+              ))}
             </div>
           </div>
 

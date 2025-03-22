@@ -154,7 +154,7 @@ export const questions: Question[] = [
 
 export const anchorDescriptions = {
   TF: {
-    title: 'Technical/Functional Competence',
+    title: 'Technical/Functional',
     subtitle: 'Developing expertise in a specific area',
     personality:
       "You value being good at something specific and enjoy developing expertise in your field. You're motivated by challenges that test your skills and abilities.",
@@ -167,10 +167,10 @@ export const anchorDescriptions = {
       'May resist moving into general management roles that take them away from their area of expertise',
     ],
     icon: 'wrench',
-    themecolor: 'indigo',
+    themecolor: 'violet',
   },
   GMC: {
-    title: 'General Managerial Competence',
+    title: 'General Managerial',
     subtitle: 'Leading and coordinating diverse functions',
     personality:
       'You’re energized by leadership roles and enjoy bringing people together to solve problems. You thrive in complex, fast-moving environments and are motivated by the opportunity to take charge and drive success at a strategic level.',
@@ -262,7 +262,8 @@ export const anchorDescriptions = {
       'May be drawn to highly competitive environments or cutting-edge fields',
       'May change positions frequently in search of new challenges',
     ],
-    icon: 'pink',
+    icon: 'trophy',
+    themecolor: 'pink',
   },
   LS: {
     title: 'Lifestyle',
