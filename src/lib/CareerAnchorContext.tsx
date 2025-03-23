@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 interface CareerAnchorContextProps {
   answers: Record<string, number>;
@@ -109,9 +109,9 @@ export function CareerAnchorProvider({
   };
 
   // Calculate scores whenever answers change
-  useEffect(() => {
-    calculateScores();
-  }, [answers]);
+  // useEffect(() => {
+  //   calculateScores();
+  // }, [answers]);
 
   return (
     <CareerAnchorContext.Provider
