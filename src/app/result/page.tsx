@@ -3,6 +3,21 @@ import React from 'react';
 
 import { anchorDescriptions } from '@/lib/CareerAnchorData';
 import { Progress } from '@/components/ui/progress';
+import AnchorCard from '@/components/result/AnchorCard';
+
+const getProgressColor = (key: string) => {
+  const colorMap: { [key: string]: string } = {
+    TF: 'bg-violet-500',
+    GMC: 'bg-blue-500',
+    AI: 'bg-green-500',
+    SS: 'bg-amber-500',
+    EC: 'bg-red-500',
+    S: 'bg-purple-500',
+    PC: 'bg-pink-500',
+    LS: 'bg-yellow-500',
+  };
+  return colorMap[key] || 'bg-blue-500';
+};
 
 export default function result() {
   return (
@@ -34,73 +49,7 @@ export default function result() {
               Your Top Three Anchors
             </h2>
 
-            <div className="space-y-4">
-              {/* <!-- Top Anchor --> */}
-              <div className="anchor-card tf p-4 bg-indigo-50 rounded-r-lg">
-                <div className="flex items-center mb-2">
-                  <div className="bg-indigo-100 text-indigo-700 w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                    <i className="fas fa-wrench"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">
-                      Technical/Functional Competence
-                    </h3>
-                    <span className="text-sm font-medium text-indigo-600">
-                      Primary Anchor (Score: 11)
-                    </span>
-                  </div>
-                </div>
-                <p className="text-gray-600 ml-13">
-                  You value being good at something specific and enjoy
-                  developing expertise in your field. You&apos;re motivated by
-                  challenges that test your skills and abilities.
-                </p>
-              </div>
-
-              {/* <!-- Second Anchor --> */}
-              <div className="anchor-card ai p-4 bg-green-50 rounded-r-lg">
-                <div className="flex items-center mb-2">
-                  <div className="bg-green-100 text-green-700 w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                    <i className="fas fa-check"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">
-                      Autonomy/Independence
-                    </h3>
-                    <span className="text-sm font-medium text-green-600">
-                      Secondary Anchor (Score: 9)
-                    </span>
-                  </div>
-                </div>
-                <p className="text-gray-600 ml-13">
-                  You value freedom and independence in your work. You prefer
-                  environments that allow you to work on your own terms and at
-                  your own pace.
-                </p>
-              </div>
-
-              {/* <!-- Third Anchor --> */}
-              <div className="anchor-card pc p-4 bg-pink-50 rounded-r-lg">
-                <div className="flex items-center mb-2">
-                  <div className="bg-pink-100 text-pink-700 w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                    <i className="fas fa-trophy"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">
-                      Pure Challenge
-                    </h3>
-                    <span className="text-sm font-medium text-pink-600">
-                      Tertiary Anchor (Score: 8)
-                    </span>
-                  </div>
-                </div>
-                <p className="text-gray-600 ml-13">
-                  You&apos;re motivated by overcoming difficult obstacles and
-                  solving unsolvable problems. You thrive on constant challenge
-                  and competition.
-                </p>
-              </div>
-            </div>
+            <div className="space-y-4">{/* AnchorCard */}</div>
           </div>
         </div>
 
@@ -122,7 +71,7 @@ export default function result() {
                   <Progress
                     value={66}
                     className="mt-4"
-                    indicatorColor={`bg-${anchor.themecolor}-500`}
+                    indicatorColor={getProgressColor(key)}
                   />
                 </div>
               ))}
