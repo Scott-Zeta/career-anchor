@@ -1,4 +1,5 @@
 import AnchorBadge from '@/components/descriptions/AnchorBadge';
+import AnchorFullCard from '@/components/descriptions/AnchorFullCard';
 import { anchorDescriptions } from '@/lib/CareerAnchorData';
 
 export default function descriptions() {
@@ -41,6 +42,20 @@ export default function descriptions() {
       </div>
 
       {/* Anchor Full Descriptions Section */}
+      <div className="space-y-6 mb-12">
+        {Object.entries(anchorDescriptions).map(([key, anchor]) => (
+          <div key={key}>
+            <AnchorFullCard
+              title={anchor.title}
+              subtitle={anchor.subtitle}
+              description={anchor.description}
+              implications={anchor.implications}
+              icon={anchor.icon}
+              themecolor={anchor.themecolor}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
