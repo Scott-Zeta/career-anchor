@@ -49,7 +49,7 @@ export default function Result() {
               Your Career Anchor Profile
             </h2>
             <div className="h-80">
-              <RadarChart />
+              <RadarChart scores={scores} />
             </div>
           </div>
 
