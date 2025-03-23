@@ -1,5 +1,7 @@
+import AnchorAccordion from '@/components/descriptions/AnchorAccordion';
 import AnchorBadge from '@/components/descriptions/AnchorBadge';
 import AnchorFullCard from '@/components/descriptions/AnchorFullCard';
+import { Accordion } from '@/components/ui/accordion';
 import { anchorDescriptions } from '@/lib/CareerAnchorData';
 
 export default function descriptions() {
@@ -55,6 +57,21 @@ export default function descriptions() {
             />
           </div>
         ))}
+      </div>
+      {/* Anchor Accordions */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden">
+        <Accordion type="multiple" className="w-full">
+          {Object.entries(anchorDescriptions).map(([key, anchor]) => (
+            <AnchorAccordion
+              key={key}
+              title={anchor.title}
+              subtitle={anchor.subtitle}
+              description={anchor.description}
+              icon={anchor.icon}
+              themecolor={anchor.themecolor}
+            />
+          ))}
+        </Accordion>
       </div>
     </div>
   );
