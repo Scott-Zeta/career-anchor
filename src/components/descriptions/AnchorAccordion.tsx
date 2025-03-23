@@ -125,7 +125,9 @@ export default function AnchorAccordion({
         <div className={`${colors.bgCard} px-5 py-5`}>
           <p className={`${colors.text} font-medium`}>{subtitle}</p>
           <br />
-          <p className="text-gray-600 mb-4">{description}</p>
+          <p className="text-gray-600 mb-4 whitespace-pre-line">
+            {description}
+          </p>
         </div>
       </AccordionContent>
     </AccordionItem>

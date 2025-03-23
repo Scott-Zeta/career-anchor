@@ -119,7 +119,7 @@ export default function AnchorFullCard({
         </div>
       </div>
       <div className="ml-16">
-        <p className="text-gray-600 mb-4">{description}</p>
+        <p className="text-gray-600 mb-4 whitespace-pre-line">{description}</p>
         <div className={`${colors.bgCard} p-4 rounded-lg`}>
           <h3 className="text-lg font-medium text-gray-900 mb-2">
             Career Implications
