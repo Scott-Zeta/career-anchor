@@ -1,5 +1,8 @@
+'use client';
+
 import RadarChart from '@/components/result/RadarChart';
 import Link from 'next/link';
+import { useCareerAnchor } from '@/lib/CareerAnchorContext';
 
 import { anchorDescriptions } from '@/lib/CareerAnchorData';
 import { Progress } from '@/components/ui/progress';
@@ -21,7 +24,10 @@ const getProgressColor = (key: string) => {
   return colorMap[key] || 'bg-blue-500';
 };
 
-export default function result() {
+export default function Result() {
+  const { scores, topAnchors } = useCareerAnchor();
+  // console.log(scores, topAnchors);
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
       <div className="mb-10">
@@ -43,7 +49,7 @@ export default function result() {
               Your Career Anchor Profile
             </h2>
             <div className="h-80">
-              <RadarChart />
+              <RadarChart scores={scores} />
             </div>
           </div>
 
@@ -55,17 +61,21 @@ export default function result() {
 
             <div className="space-y-4">
               {/* AnchorCard */}
-              {Object.entries(anchorDescriptions).map(([key, anchor]) => (
-                <div key={key}>
-                  <AnchorCard
-                    title={anchor.title}
-                    personality={anchor.personality}
-                    themecolor={anchor.themecolor}
-                    icon={anchor.icon}
-                    score={6}
-                  />
-                </div>
-              ))}
+              {topAnchors.map((key) => {
+                const anchor =
+                  anchorDescriptions[key as keyof typeof anchorDescriptions];
+                return (
+                  <div key={key}>
+                    <AnchorCard
+                      title={anchor.title}
+                      personality={anchor.personality}
+                      themecolor={anchor.themecolor}
+                      icon={anchor.icon}
+                      score={scores[key.toString()]}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -84,10 +94,12 @@ export default function result() {
                     <span className="text-sm font-medium text-gray-700">
                       {`${anchor.title} (${key.toString()})`}
                     </span>
-                    <span className="text-sm font-medium text-gray-900">6</span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {scores[key.toString()]}
+                    </span>
                   </div>
                   <Progress
-                    value={66}
+                    value={(scores[key.toString()] / 12) * 100}
                     className="mt-4"
                     indicatorColor={getProgressColor(key)}
                   />

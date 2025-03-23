@@ -1,3 +1,4 @@
+import { useCareerAnchor } from '@/lib/CareerAnchorContext';
 interface QuestionCardProps {
   id: number;
   text: string;
@@ -9,6 +10,8 @@ export default function QuestionCard({
   text,
   anchorLabel,
 }: QuestionCardProps) {
+  const { answers, setAnswer } = useCareerAnchor();
+
   return (
     <div className="question-card bg-white p-6 rounded-xl shadow-md">
       <div className="flex items-start mb-4">
@@ -35,6 +38,11 @@ export default function QuestionCard({
               value={value}
               id={`q-${id}-${value}`}
               className="hidden peer"
+              checked={answers[id.toString()] === value}
+              onChange={() => {
+                setAnswer(id.toString(), value);
+                // console.log(answers);
+              }}
             />
             <label
               htmlFor={`q-${id}-${value}`}

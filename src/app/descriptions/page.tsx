@@ -1,12 +1,17 @@
+'use client';
+
 import AnchorAccordion from '@/components/descriptions/AnchorAccordion';
 import AnchorBadge from '@/components/descriptions/AnchorBadge';
 import AnchorFullCard from '@/components/descriptions/AnchorFullCard';
 import { Accordion } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { anchorDescriptions } from '@/lib/CareerAnchorData';
+import { useCareerAnchor } from '@/lib/CareerAnchorContext';
 import Link from 'next/link';
 
-export default function descriptions() {
+export default function Descriptions() {
+  const { scores, topAnchors } = useCareerAnchor();
+  // console.log(scores, topAnchors);
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
       <div className="mb-10">
@@ -31,15 +36,19 @@ export default function descriptions() {
               are:
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
-              {Object.entries(anchorDescriptions).map(([key, anchor]) => (
-                <div key={key}>
-                  <AnchorBadge
-                    title={anchor.title}
-                    themecolor={anchor.themecolor}
-                    score={6}
-                  />
-                </div>
-              ))}
+              {topAnchors.map((key) => {
+                const anchor =
+                  anchorDescriptions[key as keyof typeof anchorDescriptions];
+                return (
+                  <div key={key}>
+                    <AnchorBadge
+                      title={anchor.title}
+                      themecolor={anchor.themecolor}
+                      score={scores[key]}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -47,32 +56,42 @@ export default function descriptions() {
 
       {/* Anchor Full Descriptions Section */}
       <div className="space-y-6 mb-12">
-        {Object.entries(anchorDescriptions).map(([key, anchor]) => (
-          <div key={key}>
-            <AnchorFullCard
-              title={anchor.title}
-              subtitle={anchor.subtitle}
-              description={anchor.description}
-              implications={anchor.implications}
-              icon={anchor.icon}
-              themecolor={anchor.themecolor}
-            />
-          </div>
-        ))}
+        {topAnchors.map((key) => {
+          const anchor =
+            anchorDescriptions[key as keyof typeof anchorDescriptions];
+          return (
+            <div key={key}>
+              <AnchorFullCard
+                title={anchor.title}
+                subtitle={anchor.subtitle}
+                description={anchor.description}
+                implications={anchor.implications}
+                icon={anchor.icon}
+                themecolor={anchor.themecolor}
+              />
+            </div>
+          );
+        })}
       </div>
+
       {/* Anchor Accordions */}
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        Explore all Anchors
+      </h2>
       <div className="bg-white rounded-xl shadow-md overflow-hidden mb-12">
         <Accordion type="multiple" className="w-full">
-          {Object.entries(anchorDescriptions).map(([key, anchor]) => (
-            <AnchorAccordion
-              key={key}
-              title={anchor.title}
-              subtitle={anchor.subtitle}
-              description={anchor.description}
-              icon={anchor.icon}
-              themecolor={anchor.themecolor}
-            />
-          ))}
+          {Object.entries(anchorDescriptions)
+            .filter(([key]) => !topAnchors.includes(key))
+            .map(([key, anchor]) => (
+              <AnchorAccordion
+                key={key}
+                title={anchor.title}
+                subtitle={anchor.subtitle}
+                description={anchor.description}
+                icon={anchor.icon}
+                themecolor={anchor.themecolor}
+              />
+            ))}
         </Accordion>
       </div>
 

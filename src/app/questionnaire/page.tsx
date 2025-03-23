@@ -2,12 +2,15 @@
 
 import ProgressBar from '@/components/questionnaire/ProgressBar';
 import QuestionCard from '@/components/questionnaire/QuestionCard';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { useCareerAnchor } from '@/lib/CareerAnchorContext';
 
 import { questions } from '@/lib/CareerAnchorData';
 
 export default function Questionnaire() {
+  const router = useRouter();
   // Pagination
   const questionsPerPage = 3;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
@@ -18,12 +21,16 @@ export default function Questionnaire() {
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
+  // Context
+  const { progress, calculateScores } = useCareerAnchor();
+
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage((prev) => prev + 1);
       window.scrollTo({ top: 140 });
     } else {
-      alert('You have completed the questionnaire!');
+      calculateScores();
+      router.push('/result');
     }
   };
   const handlePrevPage = () => {
@@ -44,7 +51,7 @@ export default function Questionnaire() {
           much it applies to you. There are no right or wrong answers - the goal
           is to understand what matters most to you in your career.
         </p>
-        <ProgressBar />
+        <ProgressBar progress={progress} />
       </div>
       <div className="space-y-6 mb-5">
         {currentQuestions.map((question) => (
