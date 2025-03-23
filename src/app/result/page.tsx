@@ -49,7 +49,20 @@ export default function result() {
               Your Top Three Anchors
             </h2>
 
-            <div className="space-y-4">{/* AnchorCard */}</div>
+            <div className="space-y-4">
+              {/* AnchorCard */}
+              {Object.entries(anchorDescriptions).map(([key, anchor]) => (
+                <div key={key}>
+                  <AnchorCard
+                    title={anchor.title}
+                    personality={anchor.personality}
+                    themecolor={anchor.themecolor}
+                    icon={anchor.icon}
+                    score={6}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
