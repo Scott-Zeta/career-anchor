@@ -2,7 +2,9 @@ import AnchorAccordion from '@/components/descriptions/AnchorAccordion';
 import AnchorBadge from '@/components/descriptions/AnchorBadge';
 import AnchorFullCard from '@/components/descriptions/AnchorFullCard';
 import { Accordion } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
 import { anchorDescriptions } from '@/lib/CareerAnchorData';
+import Link from 'next/link';
 
 export default function descriptions() {
   return (
@@ -59,7 +61,7 @@ export default function descriptions() {
         ))}
       </div>
       {/* Anchor Accordions */}
-      <div className="bg-white rounded-xl shadow-md overflow-hidden">
+      <div className="bg-white rounded-xl shadow-md overflow-hidden mb-12">
         <Accordion type="multiple" className="w-full">
           {Object.entries(anchorDescriptions).map(([key, anchor]) => (
             <AnchorAccordion
@@ -72,6 +74,31 @@ export default function descriptions() {
             />
           ))}
         </Accordion>
+      </div>
+
+      {/* What do Section */}
+      <div className="bg-blue-50 p-6 rounded-xl shadow-md">
+        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+          What Do These Anchors Mean For You?
+        </h2>
+        <p className="text-gray-600 mb-4">
+          Understanding your career anchors can help you make more informed
+          career choices that align with your values and motivations. When your
+          work environment matches your career anchors, you&apos;re likely to
+          feel more satisfied and engaged.
+        </p>
+        <p className="text-gray-600 mb-4">
+          Consider discussing your results with a career counselor or mentor who
+          can help you explore career paths that align with your anchors.
+        </p>
+        <div className="flex justify-center mt-6">
+          <Button
+            className="w-full sm:w-auto px-4 py-7 rounded-lg font-medium transition-colors text-lg"
+            asChild
+          >
+            <Link href="/result">Return to Your Result</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );
