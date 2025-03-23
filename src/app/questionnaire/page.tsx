@@ -2,6 +2,7 @@
 
 import ProgressBar from '@/components/questionnaire/ProgressBar';
 import QuestionCard from '@/components/questionnaire/QuestionCard';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useCareerAnchor } from '@/lib/CareerAnchorContext';
@@ -9,6 +10,7 @@ import { useCareerAnchor } from '@/lib/CareerAnchorContext';
 import { questions } from '@/lib/CareerAnchorData';
 
 export default function Questionnaire() {
+  const router = useRouter();
   // Pagination
   const questionsPerPage = 3;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
@@ -20,14 +22,15 @@ export default function Questionnaire() {
     indexOfLastQuestion
   );
   // Context
-  const { progress } = useCareerAnchor();
+  const { progress, calculateScores } = useCareerAnchor();
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage((prev) => prev + 1);
       window.scrollTo({ top: 140 });
     } else {
-      alert('You have completed the questionnaire!');
+      calculateScores();
+      router.push('/result');
     }
   };
   const handlePrevPage = () => {
