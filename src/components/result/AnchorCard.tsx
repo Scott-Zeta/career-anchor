@@ -86,6 +86,7 @@ const getColorClasses = (color: string) => {
       bg: 'bg-blue-100',
       text: 'text-blue-700',
       bgCard: 'bg-blue-50',
+      border: 'border-blue-500',
     }
   );
 };
