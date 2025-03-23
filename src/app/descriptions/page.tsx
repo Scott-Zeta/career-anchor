@@ -11,6 +11,7 @@ import Link from 'next/link';
 
 export default function Descriptions() {
   const { scores, topAnchors } = useCareerAnchor();
+  // console.log(scores, topAnchors);
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
       <div className="mb-10">
@@ -72,19 +73,25 @@ export default function Descriptions() {
           );
         })}
       </div>
+
       {/* Anchor Accordions */}
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        Explore all Anchors
+      </h2>
       <div className="bg-white rounded-xl shadow-md overflow-hidden mb-12">
         <Accordion type="multiple" className="w-full">
-          {Object.entries(anchorDescriptions).map(([key, anchor]) => (
-            <AnchorAccordion
-              key={key}
-              title={anchor.title}
-              subtitle={anchor.subtitle}
-              description={anchor.description}
-              icon={anchor.icon}
-              themecolor={anchor.themecolor}
-            />
-          ))}
+          {Object.entries(anchorDescriptions)
+            .filter(([key]) => !topAnchors.includes(key))
+            .map(([key, anchor]) => (
+              <AnchorAccordion
+                key={key}
+                title={anchor.title}
+                subtitle={anchor.subtitle}
+                description={anchor.description}
+                icon={anchor.icon}
+                themecolor={anchor.themecolor}
+              />
+            ))}
         </Accordion>
       </div>
 
