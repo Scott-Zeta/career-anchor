@@ -1,9 +1,11 @@
 import RadarChart from '@/components/result/RadarChart';
-import React from 'react';
+import Link from 'next/link';
 
 import { anchorDescriptions } from '@/lib/CareerAnchorData';
 import { Progress } from '@/components/ui/progress';
 import AnchorCard from '@/components/result/AnchorCard';
+import { Button } from '@/components/ui/button';
+import { FaBookOpen, FaDownload, FaShareAlt, FaCalendar } from 'react-icons/fa';
 
 const getProgressColor = (key: string) => {
   const colorMap: { [key: string]: string } = {
@@ -35,6 +37,7 @@ export default function result() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         <div className="lg:col-span-2">
+          {/* RadarChart Section */}
           <div className="bg-white p-6 rounded-xl shadow-md mb-8">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               Your Career Anchor Profile
@@ -44,6 +47,7 @@ export default function result() {
             </div>
           </div>
 
+          {/* Top Three Anchors Section */}
           <div className="bg-white p-6 rounded-xl shadow-md">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               Your Top Three Anchors
@@ -67,6 +71,7 @@ export default function result() {
         </div>
 
         <div className="lg:col-span-1">
+          {/* Results Progress Bar Section */}
           <div className="bg-white p-6 rounded-xl shadow-md mb-8">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               Your Complete Results
@@ -91,6 +96,7 @@ export default function result() {
             </div>
           </div>
 
+          {/* What's Next Section */}
           <div className="bg-blue-50 p-6 rounded-xl shadow-md">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               What&apos;s Next?
@@ -98,7 +104,7 @@ export default function result() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <div className="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
-                  <i className="fas fa-book-open text-xs"></i>
+                  <FaBookOpen className="text-xs" />
                 </div>
                 <span className="text-gray-600">
                   Read detailed descriptions of your top anchors
@@ -106,7 +112,7 @@ export default function result() {
               </li>
               <li className="flex items-start">
                 <div className="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
-                  <i className="fas fa-download text-xs"></i>
+                  <FaDownload className="text-xs" />
                 </div>
                 <span className="text-gray-600">
                   Download your complete results report
@@ -114,7 +120,7 @@ export default function result() {
               </li>
               <li className="flex items-start">
                 <div className="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
-                  <i className="fas fa-share-alt text-xs"></i>
+                  <FaShareAlt className="text-xs" />
                 </div>
                 <span className="text-gray-600">
                   Share your results with a career counselor
@@ -122,7 +128,7 @@ export default function result() {
               </li>
               <li className="flex items-start">
                 <div className="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
-                  <i className="fas fa-calendar text-xs"></i>
+                  <FaCalendar className="text-xs" />
                 </div>
                 <span className="text-gray-600">
                   Schedule a career guidance session
@@ -131,9 +137,12 @@ export default function result() {
             </ul>
 
             <div className="mt-6">
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg font-medium transition-colors">
-                View Anchor Descriptions
-              </button>
+              <Button
+                className="w-full px-4 py-7 rounded-lg font-medium transition-colors text-lg"
+                asChild
+              >
+                <Link href="/descriptions">View Anchor Descriptions</Link>
+              </Button>
             </div>
           </div>
         </div>
