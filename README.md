@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Career Anchor Assessment Platform
+
+## Overview
+
+The Career Anchor Assessment Platform is a modern web application designed to help individuals discover and understand their core career values and motivations. Based on Edgar Schein's Career Anchors framework from MIT, this tool provides valuable insights into what truly drives your career decisions.
+
+![Career Anchors Assessment](public/screenshot.png)
+
+## What Are Career Anchors?
+
+Career anchors are the fundamental values, motivations, and needs that guide your career choices. They represent:
+
+- What you're naturally good at (your skills and competencies)
+- What drives you (your motives and needs)
+- What matters most to you (your values)
+
+## Key Features
+
+- **Interactive Assessment**: A comprehensive questionnaire to identify your dominant career anchors
+- **Visual Results**: Clear visualization of your career anchor profile through radar charts and progress indicators
+- **Detailed Insights**: In-depth descriptions of each career anchor and what they mean for your career path
+- **Modern Interface**: Clean, intuitive design that makes complex career concepts accessible
+- **Mobile-Friendly**: Fully responsive design that works seamlessly on all devices
+
+## The Eight Career Anchors
+
+1. **Technical/Functional Competence**
+
+   - For those who thrive on being experts in their field
+
+2. **General Management**
+
+   - For those who enjoy leading and coordinating diverse functions
+
+3. **Autonomy/Independence**
+
+   - For those who value freedom from organizational constraints
+
+4. **Security/Stability**
+
+   - For those who prioritize predictability and long-term stability
+
+5. **Entrepreneurial Creativity**
+
+   - For those driven to create new ventures or innovations
+
+6. **Service/Dedication to a Cause**
+
+   - For those motivated by making a positive impact
+
+7. **Pure Challenge**
+
+   - For those who thrive on solving complex problems
+
+8. **Lifestyle**
+   - For those seeking work-life balance and integration
+
+## Why This Matters
+
+Understanding your career anchors can help you:
+
+- Make better-informed career decisions
+- Find roles that align with your core values
+- Identify work environments where you'll thrive
+- Navigate career transitions more effectively
+
+## Technology Stack
+
+- Next.js 14 (React Framework)
+- Tailwind CSS (Styling)
+- Radix UI (Accessible Components)
+- TypeScript (Type Safety)
 
 ## Getting Started
 
-First, run the development server:
+### For Users
+
+Visit [your-deployed-url] to take the assessment and discover your career anchors.
+
+### For Developers
+
+1. Clone the repository:
+
+```bash
+git clone [repository-url]
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## About the Developer
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[Your brief introduction and what motivated you to build this project]
 
-## Learn More
+## Contact
 
-To learn more about Next.js, take a look at the following resources:
+[Scott Zeta](https://www.linkedin.com/in/scott-zeta/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License

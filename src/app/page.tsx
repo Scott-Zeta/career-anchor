@@ -26,7 +26,7 @@ export default function Home() {
               className="w-full sm:w-auto px-8 py-7 bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 rounded-lg font-medium text-lg transition-colors"
               asChild
             >
-              <Link href="/descriptions">Learn More</Link>
+              <Link href="/about">Learn More</Link>
             </Button>
           </div>
         </div>
