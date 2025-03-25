@@ -1,6 +1,12 @@
 'use client';
 
-import React, { createContext, useContext, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+} from 'react';
 
 interface CareerAnchorContextProps {
   answers: Record<string, number>;
@@ -33,27 +39,59 @@ const CareerAnchorContext = createContext<CareerAnchorContextProps | undefined>(
   undefined
 );
 
+const STORAGE_KEY = 'careerAnchorState';
+
+const initialScores = {
+  TF: 0,
+  GMC: 0,
+  AI: 0,
+  SS: 0,
+  EC: 0,
+  S: 0,
+  PC: 0,
+  LS: 0,
+};
+
 export function CareerAnchorProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const initialized = useRef(false);
   const [answers, setAnswers] = useState<Record<string, number>>({});
-  const [scores, setScores] = useState<Record<string, number>>({
-    TF: 0,
-    GMC: 0,
-    AI: 0,
-    SS: 0,
-    EC: 0,
-    S: 0,
-    PC: 0,
-    LS: 0,
-  });
-
+  const [scores, setScores] = useState<Record<string, number>>(initialScores);
   const [topAnchors, setTopAnchors] = useState<string[]>([]);
 
+  // Load state from localStorage only once on client side
+  useEffect(() => {
+    if (!initialized.current && typeof window !== 'undefined') {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setAnswers(parsed.answers || {});
+        setScores(parsed.scores || initialScores);
+        setTopAnchors(parsed.topAnchors || []);
+      }
+      initialized.current = true;
+    }
+  }, []);
+
+  // Save to localStorage whenever state changes
+  useEffect(() => {
+    if (initialized.current) {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          answers,
+          scores,
+          topAnchors,
+        })
+      );
+    }
+  }, [answers, scores, topAnchors]);
+
   const progress = {
-    total: 24, // Total number of questions
+    total: 24,
     answered: Object.keys(answers).length,
     percentage: Math.round((Object.keys(answers).length / 24) * 100),
   };
@@ -93,25 +131,13 @@ export function CareerAnchorProvider({
     setTopAnchors(sortedAnchors);
   };
 
+  // Modify resetAnswers to clear localStorage
   const resetAnswers = () => {
     setAnswers({});
-    setScores({
-      TF: 0,
-      GMC: 0,
-      AI: 0,
-      SS: 0,
-      EC: 0,
-      S: 0,
-      PC: 0,
-      LS: 0,
-    });
+    setScores(initialScores);
     setTopAnchors([]);
+    localStorage.removeItem(STORAGE_KEY);
   };
-
-  // Calculate scores whenever answers change
-  // useEffect(() => {
-  //   calculateScores();
-  // }, [answers]);
 
   return (
     <CareerAnchorContext.Provider

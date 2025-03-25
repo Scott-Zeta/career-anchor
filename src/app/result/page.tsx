@@ -9,6 +9,8 @@ import { Progress } from '@/components/ui/progress';
 import AnchorCard from '@/components/result/AnchorCard';
 import { Button } from '@/components/ui/button';
 import { FaBookOpen, FaDownload, FaShareAlt, FaCalendar } from 'react-icons/fa';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 const getProgressColor = (key: string) => {
   const colorMap: { [key: string]: string } = {
@@ -25,8 +27,14 @@ const getProgressColor = (key: string) => {
 };
 
 export default function Result() {
-  const { scores, topAnchors } = useCareerAnchor();
+  const { scores, topAnchors, progress } = useCareerAnchor();
+  const router = useRouter();
   // console.log(scores, topAnchors);
+  useEffect(() => {
+    if (progress.percentage < 100) {
+      router.replace('/');
+    }
+  }, [router, progress.percentage]);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">

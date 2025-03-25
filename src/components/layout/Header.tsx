@@ -35,12 +35,14 @@ export default function Header() {
           >
             About
           </Link>
-          <Link
-            href="#"
+          <a
+            href="https://www.linkedin.com/in/scott-zeta/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-gray-600 hover:text-primary transition-colors font-bold"
           >
-            Contact
-          </Link>
+            Contact Me
+          </a>
           {pathname !== '/questionnaire' && (
             <Button className="font-bold hidden md:block" asChild>
               <Link href="/questionnaire">Start Questionnaire</Link>
