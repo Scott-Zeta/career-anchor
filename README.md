@@ -4,6 +4,8 @@
 
 The Career Anchor Assessment Platform is a modern web application designed to help individuals discover and understand their core career values and motivations. Based on Edgar Schein's Career Anchors framework from MIT, this tool provides valuable insights into what truly drives your career decisions.
 
+This project was developed as part of StudyAdelaide's Leadership Empowerment Program, a prestigious initiative aimed at fostering leadership development among international students in Adelaide. The application has been successfully integrated into the program's workshops, helping students better understand their career motivations and make informed decisions about their professional paths.
+
 ![Career Anchors Assessment](public/screenshot.png)
 
 ## What Are Career Anchors?
@@ -101,10 +103,16 @@ npm run dev
 
 ## About the Developer
 
-[Your brief introduction and what motivated you to build this project]
+This project was developed as part of StudyAdelaide's Leadership Empowerment Program, demonstrating the practical application of career development tools in an educational setting. The application has been successfully integrated into the program's workshops, helping international students in Adelaide better understand their career motivations and make informed decisions about their professional paths.
 
 ## Contact
 
 [Scott Zeta](https://www.linkedin.com/in/scott-zeta/)
 
 ## License
+
+## Acknowledgments
+
+- StudyAdelaide for providing the opportunity to develop this project through their Leadership Empowerment Program
+- Edgar Schein and MIT for the Career Anchors framework
+- All participants in the Leadership Empowerment Program workshops who provided valuable feedback
