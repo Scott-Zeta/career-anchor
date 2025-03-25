@@ -62,7 +62,7 @@ export default function Descriptions() {
                 <p className="text-gray-600 mt-2">
                   Looks like you haven&apos;t taken the questionnaire yet. Take
                   the questionnaire to discover your career anchors and more
-                  details!
+                  details and advices!
                 </p>
                 <div className="flex justify-center mt-5">
                   <Button
