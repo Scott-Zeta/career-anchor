@@ -4,7 +4,7 @@ import ProgressBar from '@/components/questionnaire/ProgressBar';
 import QuestionCard from '@/components/questionnaire/QuestionCard';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCareerAnchor } from '@/lib/CareerAnchorContext';
 
 import { questions } from '@/lib/CareerAnchorData';
@@ -15,6 +15,7 @@ export default function Questionnaire() {
   const questionsPerPage = 3;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
+  const [notAnswered, setNotAnswered] = useState(false);
   const indexOfLastQuestion = currentPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestions = questions.slice(
@@ -26,8 +27,14 @@ export default function Questionnaire() {
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
-      window.scrollTo({ top: 140 });
+      if (progress.answered >= questionsPerPage * currentPage) {
+        setNotAnswered(false);
+        setCurrentPage((prev) => prev + 1);
+        window.scrollTo({ top: 140 });
+      } else {
+        setNotAnswered(true);
+        window.scrollTo({ top: 140 });
+      }
     } else {
       calculateScores();
       router.push('/result');
@@ -35,10 +42,18 @@ export default function Questionnaire() {
   };
   const handlePrevPage = () => {
     if (currentPage > 1) {
+      setNotAnswered(false);
       setCurrentPage((prev) => prev - 1);
       window.scrollTo({ top: 140 });
     }
   };
+
+  useEffect(() => {
+    const initialPage = Math.ceil(progress.answered / questionsPerPage);
+    if (initialPage > 0) {
+      setCurrentPage(initialPage);
+    }
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -52,7 +67,13 @@ export default function Questionnaire() {
           is to understand what matters most to you in your career.
         </p>
         <ProgressBar progress={progress} />
+        {notAnswered && (
+          <div className="text-red-500">
+            Please answer all questions before proceeding.
+          </div>
+        )}
       </div>
+
       <div className="space-y-6 mb-5">
         {currentQuestions.map((question) => (
           <QuestionCard
